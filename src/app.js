@@ -7,6 +7,9 @@ const forecast = require('./utils/forecast.js')
 
 const app = express();
 
+// heroku's port
+const port = process.env.PORT || 3000
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '../templates/views'));
 hbs.registerPartials(path.join(__dirname, '../templates/partials'));
@@ -96,6 +99,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-	console.log('Up and running! port: 3000');
+app.listen(port, () => {
+	console.log('Up and running! port: ' + port);
 });
